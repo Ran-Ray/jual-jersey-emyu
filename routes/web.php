@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TransaksiController;
 
-Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
-Route::post('/transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
+Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::post('/products/reset', [ProductController::class, 'reset'])->name('products.reset');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
